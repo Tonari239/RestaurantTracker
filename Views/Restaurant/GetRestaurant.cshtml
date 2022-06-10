@@ -1,0 +1,53 @@
+﻿@model RestaurantTracker.Models.RestaurantViewModel
+
+<div class="container">
+
+    <span>
+        <img id="RestaurantPictures" src="@Model.ImgUrl" />
+        <label id="imageDate">Added on @Model.DateAdded.ToShortDateString()</label>
+    </span>
+    <label asp-for="@Model.Address"><em>Адрес:</em> @Model.Address</label> <br />
+    <label asp-for="@Model.Cleanness"><em>Чистота:</em> @Model.Cleanness/5</label> <br />
+    <label asp-for="@Model.HospitalityLevel"><em>Гостоприемство:</em> @Model.HospitalityLevel/5</label> <br />
+    <label asp-for="@Model.VeganFriendly"><em>Има вегански опции:</em>: @(Model.VeganFriendly == true ? "да":"не")</label> <br />
+    <label asp-for="@Model.FreeToilet"><em>Безплатна за употреба тоалетна:</em> @(Model.FreeToilet == true ? "да":"не")</label> <br />
+    <label asp-for="@Model.PetFriendly"><em>Опции за домашни любимци:</em> @(Model.PetFriendly == true ? "да":"не")</label> <br />
+
+
+</div>
+
+
+
+
+
+
+
+
+<style>
+    #RestaurantPictures {
+        width: 200px;
+        height: 200px;
+        display: block;
+        padding-bottom: 5px;
+        position: absolute;
+        right: 50%;
+    }
+
+    #imageDate {
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        color: slategray;
+    }
+
+    #objectDiv {
+        max-width: 250px;
+    }
+
+    .border-1 {
+        border-color: lightgray;
+        border-style: solid;
+        padding-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>

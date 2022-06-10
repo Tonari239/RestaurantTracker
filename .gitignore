@@ -1,0 +1,6 @@
+bin
+obj
+appsettings.Development.json
+appsettings.json
+RestaurantTracker.csproj
+RestaurantTracker.csproj.user

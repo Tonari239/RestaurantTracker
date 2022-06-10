@@ -1,0 +1,22 @@
+﻿@model RestaurantTracker.Models.RestaurantViewModel
+<h2>Сигурни ли сте, че искате да изтриете записа за този ресторант?</h2>
+<a class="button border" asp-controller="Restaurant" asp-action="Delete" asp-route-id="@Model.Id">Да, изтрий записа</a>
+<a class="button border" asp-controller="Restaurant" asp-action="Index">Връщане назад</a>
+
+
+<style>
+    .button {
+        color: black;
+        background-color: aliceblue;
+        border-color: slategray;
+        margin-left: 30px;
+        margin-top: 30px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        border-width: 7px;
+    }
+
+    div > label {
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,84 @@
+﻿@model RestaurantTracker.Models.RestaurantsViewModel
+
+
+
+<span><a asp-area="" asp-controller="Restaurant" asp-action="Create">Добавете ресторант!</a></span>
+<br />
+<br />
+<br />
+<br />
+@foreach (var item in @Model.RestaurantViewModels)
+{
+    <div id="objectDiv" class="border-1 d-inline-flex">
+        <div class="container">
+            <label asp-for="@item.Address"><em>Адрес:</em> @item.Address</label> <br />
+            <label asp-for="@item.Cleanness"><em>Чистота:</em> @item.Cleanness/5</label> <br />
+            <label asp-for="@item.HospitalityLevel"><em>Гостоприемство:</em> @item.HospitalityLevel/5</label> <br />
+            <label asp-for="@item.VeganFriendly"><em>Има вегански опции:</em> @(item.VeganFriendly == true ? "да":"не")</label> <br />
+            <label asp-for="@item.FreeToilet"><em>Безплатна за употреба тоалетна:</em> @(item.FreeToilet == true ? "да":"не")</label> <br />
+            <label asp-for="@item.PetFriendly"><em>Опции за домашни любимци:</em> @(item.PetFriendly == true ? "да":"не")</label> <br />
+            <a asp-action="GetRestaurant" asp-controller="Restaurant" asp-route-id="@item.Id">
+                <img id="RestaurantPictures" src="@item.ImgUrl" />
+            </a>
+            <a class="relative-text" asp-action="Edit" asp-controller="Restaurant" asp-route-id="@item.Id">Редакция</a>
+
+            <a class="relative-text" id="secondaryTxT" asp-action="DeleteWarningPage" asp-controller="Restaurant" asp-route-id="@item.Id">   Изтрий</a>
+
+
+
+        </div>
+    </div>
+
+
+
+
+}
+<div class="d-inline-flex" id="search">
+    <form method="post">
+        <label>Потърсете ресторант: </label>
+        <input type="search" name="SearchAddress" />
+        <input type="submit" value="Търси" asp-controller="Restaurant" asp-action="Search" />
+
+    </form>
+</div>
+
+
+
+
+
+
+
+<style>
+    #RestaurantPictures {
+        width: 100px;
+        height: 100px;
+        display: block;
+        padding-bottom: 5px;
+    }
+
+    #objectDiv {
+        max-width: 250px;
+    }
+
+    .border-1 {
+        border-color: lightgray;
+        border-style: solid;
+        padding-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .relative-text {
+        right: 30px;
+        top: 10px;
+    }
+
+    #secondaryTxT {
+        margin-left: 80px;
+    }
+
+    #search {
+        position: absolute;
+        top: 90px;
+        right: 30px;
+    }
+</style>
